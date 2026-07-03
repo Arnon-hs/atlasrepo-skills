@@ -1,0 +1,25 @@
+{
+  "name": "atlasrepo-skills",
+  "owner": {
+    "name": "AtlasRepo",
+    "url": "https://atlasrepo.com"
+  },
+  "metadata": {
+    "description": "Official AtlasRepo agent integrations: search vetted open-source repositories and implementation stories from your coding agent.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "atlasrepo",
+      "source": "./plugins/atlasrepo",
+      "description": "AtlasRepo Scout: find vetted open-source repos and implementation stories for any task via the AtlasRepo REST API. Free endpoints work without a key; a paid key unlocks full catalog search.",
+      "author": {
+        "name": "AtlasRepo",
+        "url": "https://atlasrepo.com"
+      },
+      "homepage": "https://atlasrepo.com",
+      "keywords": ["open-source", "search", "catalog", "oss", "atlasrepo", "scout"],
+      "category": "search"
+    }
+  ]
+}

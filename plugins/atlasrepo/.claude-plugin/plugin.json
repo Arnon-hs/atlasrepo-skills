@@ -1,0 +1,13 @@
+{
+  "name": "atlasrepo",
+  "version": "0.1.0",
+  "description": "AtlasRepo Scout: find vetted open-source repos and implementation stories for any task via the AtlasRepo REST API.",
+  "author": {
+    "name": "AtlasRepo",
+    "url": "https://atlasrepo.com"
+  },
+  "homepage": "https://atlasrepo.com",
+  "repository": "https://github.com/Arnon-hs/atlasrepo-skills",
+  "license": "MIT",
+  "keywords": ["open-source", "search", "catalog", "oss", "atlasrepo", "scout"]
+}
