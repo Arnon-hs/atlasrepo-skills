@@ -1,0 +1,13 @@
+{
+  "//": "Rename this file to .mcp.json once the atlasrepo-mcp package is published to npm (backlog item 2). Until then the plugin ships the scout-rest-api skill only.",
+  "mcpServers": {
+    "atlasrepo": {
+      "command": "npx",
+      "args": ["-y", "atlasrepo-mcp"],
+      "env": {
+        "ATLASREPO_API_BASE": "https://atlasrepo.com",
+        "ATLASREPO_API_KEY": "${ATLAS_SCOUT_API_KEY}"
+      }
+    }
+  }
+}
