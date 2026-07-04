@@ -1,6 +1,6 @@
 {
   "name": "atlasrepo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "AtlasRepo Scout: find vetted open-source repos and implementation stories for any task via the AtlasRepo REST API.",
   "author": {
     "name": "AtlasRepo",

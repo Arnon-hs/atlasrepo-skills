@@ -8,7 +8,7 @@ Find vetted open-source solutions for this task: $ARGUMENTS
 Use the scout-rest-api skill (AtlasRepo Scout REST API). Follow this workflow:
 
 1. Map the task to 1–2 exact AtlasRepo categories (the skill lists the valid values).
-2. Run the skill's bundled script: `scripts/atlas-search.sh "<keyword>" "<category>"` from the skill directory. It handles auth, query broadening, and free-tier fallback automatically.
+2. Run the skill's bundled script: `scripts/atlas-search.sh "<keyword>" "<category>"` from the skill directory. It handles auth, query broadening, compact JSON, and free-tier fallback automatically; rerun with `--pretty` if finalist details need full API fields.
 3. Query `POST /api/recommendations` with the natural-language task description for implementation-story evidence.
 4. Fetch `/api/repos/<owner>/<name>` for the top 2–3 finalists and compare them: score, stars, riskNotes, productionReadiness, refreshedAt.
 5. Answer with: recommended repo URL, why it fits (grounded in valueProposition/useCases from the API), risks, runner-ups with one-line reasons, and story evidence if any.
