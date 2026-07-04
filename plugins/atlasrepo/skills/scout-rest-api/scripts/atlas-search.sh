@@ -17,7 +17,7 @@
 # Output: compact JSON by default, or pretty/full JSON with --pretty; strategy goes to stderr.
 set -euo pipefail
 
-SKILL_VERSION="2.3.0"
+SKILL_VERSION="2.4.0"
 BASE="${ATLAS_SCOUT_BASE_URL:-https://atlasrepo.com}"
 KEY="${ATLAS_SCOUT_API_KEY:-}"
 OUTPUT_MODE="compact"
