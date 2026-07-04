@@ -6,7 +6,7 @@ Official agent integrations for [AtlasRepo](https://atlasrepo.com) — an autono
 
 | Component | Path | Status |
 |-----------|------|--------|
-| `scout-rest-api` skill (v2.3, with bundled `atlas-search.sh`, compact/pretty output, version check, invalid-key/402/429 UX) | `plugins/atlasrepo/skills/scout-rest-api/` | ✅ ready |
+| `scout-rest-api` skill (v2.4, with bundled `atlas-search.sh`, `/api/catalog/solve` docs, compact/pretty output, version check, invalid-key/402/429 UX) | `plugins/atlasrepo/skills/scout-rest-api/` | ✅ ready |
 | `/find-oss <task>` slash command | `plugins/atlasrepo/commands/find-oss.md` | ✅ ready |
 | `oss-scout` background research agent | `plugins/atlasrepo/agents/oss-scout.md` | ✅ ready |
 | SessionStart hint (only when no API key is set) | `plugins/atlasrepo/hooks/hooks.json` | ✅ ready |
@@ -45,7 +45,7 @@ export ATLAS_SCOUT_API_KEY="atlas_..."
 
 ## MCP server
 
-The stdio MCP server (`search_workflow_stories`, `recommend_tool_stack`, `find_self_hosted_alternatives`, `get_implementation_guide`, `get_story`, `list_tools`) currently lives in the main AtlasRepo repository and requires a local build. For parity with this skill, the next MCP release should also expose catalog tools: `search_catalog`, `top_repos`, `get_repo`, and later `solve_task`, all marked read-only where applicable. Once it ships to npm as `atlasrepo-mcp`, rename `plugins/atlasrepo/mcp.json.example` to `.mcp.json` and the plugin will register it automatically. Manual registration will then be:
+The stdio MCP server (`search_workflow_stories`, `recommend_tool_stack`, `find_self_hosted_alternatives`, `get_implementation_guide`, `get_story`, `list_tools`, `list_categories`, `top_repos`, `search_catalog`, `get_repo`, `solve_task`) currently lives in the main AtlasRepo repository and requires a local build. It exposes the post-Epic-3 catalog/category/solve surface as read-only tools/resources. Once it ships to npm as `atlasrepo-mcp`, rename `plugins/atlasrepo/mcp.json.example` to `.mcp.json` and the plugin will register it automatically. Manual registration will then be:
 
 ```bash
 claude mcp add atlasrepo -e ATLASREPO_API_KEY=atlas_... -- npx -y atlasrepo-mcp

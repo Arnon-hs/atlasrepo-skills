@@ -2,7 +2,7 @@
 
 Goal: make the MCP integration at least as useful as the bundled `scout-rest-api` skill, then make remote MCP the preferred onboarding path.
 
-## Catalog tools to add
+## Catalog tools shipped in main repo
 
 All catalog tools are read-only and should set `annotations.readOnlyHint: true` so MCP clients can safely auto-approve calls.
 
@@ -11,7 +11,8 @@ All catalog tools are read-only and should set `annotations.readOnlyHint: true` 
 | `search_catalog` | Paid/full-text catalog search | `q`, `category?`, `language?`, `source?`, `minScore?`, `minStars?`, `sort?`, `limit?`, `cursor?` | Compact repo list with `id`, `url`, `score`, `stars`, `language`, `categories`, `valueProposition`, `riskNotes`, `productionReadiness`, `refreshedAt`, `nextCursor` |
 | `top_repos` | Free top repos by category/topic/language | `category?`, `limit?` | Same compact repo list, no paid key required |
 | `get_repo` | Details for one finalist | `owner`, `name` | Full repo details plus linked stories/evidence |
-| `solve_task` | End-to-end advisor after Epic 3 | `task`, `constraints?`, `limit?` | Search → details for top 3 → recommendation table with winner, runner-ups, risks, freshness |
+| `solve_task` | End-to-end advisor after Epic 3 | `task`, `category?`, `language?`, `source?`, `minScore?`, `minStars?`, `limit?` | Paid `/api/catalog/solve` hybrid results; free fallback to `top_repos` + story recommendations |
+| `list_categories` | Category discovery | none | `/api/categories` names, descriptions, and active repo counts |
 
 Existing story/tools MCP methods should remain, but catalog methods must be first-class because they are the core user intent behind `/find-oss`.
 
