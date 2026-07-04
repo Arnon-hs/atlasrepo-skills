@@ -6,7 +6,7 @@ Official agent integrations for [AtlasRepo](https://atlasrepo.com) — an autono
 
 | Component | Path | Status |
 |-----------|------|--------|
-| `scout-rest-api` skill (v2.2, with bundled `atlas-search.sh`, version check, 402/429 UX) | `plugins/atlasrepo/skills/scout-rest-api/` | ✅ ready |
+| `scout-rest-api` skill (v2.3, with bundled `atlas-search.sh`, compact/pretty output, version check, invalid-key/402/429 UX) | `plugins/atlasrepo/skills/scout-rest-api/` | ✅ ready |
 | `/find-oss <task>` slash command | `plugins/atlasrepo/commands/find-oss.md` | ✅ ready |
 | `oss-scout` background research agent | `plugins/atlasrepo/agents/oss-scout.md` | ✅ ready |
 | SessionStart hint (only when no API key is set) | `plugins/atlasrepo/hooks/hooks.json` | ✅ ready |
