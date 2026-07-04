@@ -24,12 +24,14 @@ After install, try: `/find-oss self-hosted analytics for a small SaaS`
 ## Install — skill only (Claude Code / any agent)
 
 ```bash
-mkdir -p ~/.claude/skills/scout-rest-api
-curl -o ~/.claude/skills/scout-rest-api/SKILL.md \
-  https://raw.githubusercontent.com/Arnon-hs/atlasrepo-skills/main/plugins/atlasrepo/skills/scout-rest-api/SKILL.md
+gh auth login
+ATLASREPO_SKILLS_DIR="$(mktemp -d)"
+gh repo clone Arnon-hs/atlasrepo-skills "$ATLASREPO_SKILLS_DIR"
+mkdir -p ~/.claude/skills
+cp -R "$ATLASREPO_SKILLS_DIR/plugins/atlasrepo/skills/scout-rest-api" ~/.claude/skills/
 ```
 
-For a single project, put the file under `<project>/.claude/skills/scout-rest-api/SKILL.md` instead. For Codex, copy it into the project and reference it from `AGENTS.md`.
+This repository is private, so the skill-only install path must use an authenticated GitHub checkout instead of an unauthenticated `raw.githubusercontent.com` URL. For a single project, copy the same `plugins/atlasrepo/skills/scout-rest-api` directory under `<project>/.claude/skills/scout-rest-api/` instead. For Codex, copy that directory into the project and reference it from `AGENTS.md`.
 
 ## API key (optional but recommended)
 
