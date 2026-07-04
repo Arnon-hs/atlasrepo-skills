@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Official AtlasRepo agent integrations: search vetted open-source repositories and implementation stories from your coding agent.",
-    "version": "0.2.0"
+    "version": "0.2.2"
   },
   "plugins": [
     {
