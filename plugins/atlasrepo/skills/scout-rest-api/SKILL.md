@@ -1,7 +1,7 @@
 ---
 name: scout-rest-api
-description: Search AtlasRepo Scout for vetted open-source repositories and implementation stories matching a task. Works without an API key (free endpoints); a paid key unlocks full catalog search.
-version: 2.3.0
+description: Search AtlasRepo Scout for vetted open-source repositories and implementation stories matching a task. Works without an API key (free endpoints); a paid key unlocks full catalog search and solve.
+version: 2.4.0
 ---
 
 # AtlasRepo Scout REST API Skill
@@ -16,7 +16,7 @@ export ATLAS_SCOUT_API_KEY="atlas_..."   # optional — unlocks /api/catalog/sea
 ```
 
 When `ATLAS_SCOUT_API_KEY` is set, send it on every request as `-H "x-api-key: $ATLAS_SCOUT_API_KEY"`.
-Without a key the free endpoints below still work (30 req/min per IP). A paid key raises the limit to 300 req/min and unlocks full-text catalog search. Keys are created at `https://atlasrepo.com` → Account → API Keys (requires an active subscription).
+Without a key the free endpoints below still work (30 req/min per IP). A paid key raises the limit to 300 req/min and unlocks full-text catalog search plus task-solving hybrid search. Keys are created at `https://atlasrepo.com` → Account → API Keys (requires an active subscription).
 
 ## Quick search (preferred)
 
@@ -83,11 +83,16 @@ curl -sS "$ATLAS_SCOUT_BASE_URL/api/tags"
 curl -sS "$ATLAS_SCOUT_BASE_URL/api/tools?q=langchain&minQuality=0.5"
 ```
 
-## Full catalog search (paid key required)
+## Full catalog search / solve (paid key required)
 
 ```bash
 curl -sS "$ATLAS_SCOUT_BASE_URL/api/catalog/search?q=screencast&category=Automation&minScore=60&limit=10" \
   -H "x-api-key: $ATLAS_SCOUT_API_KEY"
+
+curl -sS -X POST "$ATLAS_SCOUT_BASE_URL/api/catalog/solve" \
+  -H "content-type: application/json" \
+  -H "x-api-key: $ATLAS_SCOUT_API_KEY" \
+  -d '{"task":"Need a TypeScript RAG framework for production support bots","filters":{"category":"Knowledge/RAG","language":"TypeScript","minScore":60},"limit":5}'
 ```
 
 Parameters:
@@ -102,6 +107,8 @@ Parameters:
 - `limit` (max 100), `cursor`: pass `nextCursor` from the previous response
 
 Returns `402` without a valid paid key and `429` when rate-limited. Prefer the bundled script because it turns those statuses into user-facing guidance with the pricing URL or retry-after value.
+
+`POST /api/catalog/solve` accepts a natural-language `task`, optional `filters.category`, `filters.language`, `filters.minScore`, `filters.minStars`, `filters.source`, and `limit` (max 100). It returns hybrid semantic matches with `semanticSimilarity`, `hybridScore`, and `whyItFits` reasons per repo.
 
 ## Query strategy
 
@@ -140,4 +147,4 @@ Most useful fields per catalog item: `score` (0–100 AtlasRepo quality score), 
 
 ---
 
-Skill version: 2.3.0 · updates: <https://github.com/Arnon-hs/atlasrepo-skills>
+Skill version: 2.4.0 · updates: <https://github.com/Arnon-hs/atlasrepo-skills>
