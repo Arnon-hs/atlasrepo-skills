@@ -1,7 +1,7 @@
 ---
 name: scout-rest-api
 description: Search AtlasRepo Scout for vetted open-source repositories and implementation stories matching a task. Works without an API key (free endpoints); a paid key unlocks full catalog search.
-version: 2.2.0
+version: 2.3.0
 ---
 
 # AtlasRepo Scout REST API Skill
@@ -24,6 +24,7 @@ The bundled script handles auth, URL encoding, automatic query broadening, and f
 
 ```bash
 scripts/atlas-search.sh "<keyword>" ["<category>"] [limit]
+scripts/atlas-search.sh --pretty "<keyword>" ["<category>"] [limit]
 scripts/atlas-search.sh --version
 scripts/atlas-search.sh --check-version
 # examples:
@@ -31,7 +32,7 @@ scripts/atlas-search.sh "notion" "Automation" 10
 scripts/atlas-search.sh "trading bot"
 ```
 
-It prints compact JSON to stdout and the search strategy it used to stderr. It also converts `402`/`429` into agent-readable messages instead of raw API errors. Use the raw endpoints below only when you need parameters the script doesn't cover (source, dates, cursor pagination).
+It prints compact JSON to stdout by default and the search strategy it used to stderr. Add `--pretty` when you need full API fields for finalist comparison. It also converts invalid-key, `402`, and `429` responses into agent-readable JSON instead of raw API errors. Use the raw endpoints below only when you need parameters the script doesn't cover (source, dates, cursor pagination).
 
 `--check-version` calls `/api/skill/latest` when that endpoint exists and returns whether this bundled skill is current. If the endpoint is not deployed yet, treat `status: "unknown"` as non-blocking.
 
@@ -139,4 +140,4 @@ Most useful fields per catalog item: `score` (0–100 AtlasRepo quality score), 
 
 ---
 
-Skill version: 2.2.0 · updates: <https://github.com/Arnon-hs/atlasrepo-skills>
+Skill version: 2.3.0 · updates: <https://github.com/Arnon-hs/atlasrepo-skills>
