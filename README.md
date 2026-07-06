@@ -59,6 +59,10 @@ claude mcp add atlasrepo -e ATLASREPO_API_KEY=atlas_... -- npx -y atlasrepo-mcp
 - OpenAPI JSON: <https://atlasrepo.com/api/openapi.json>
 - MCP parity roadmap: `plugins/atlasrepo/MCP_ROADMAP.md`
 
+## Repository maintenance
+
+- Git history author rewrite guide: `docs/rewrite-git-history.md`
+
 ## Source of truth
 
 The canonical copy of the skill is maintained in the main AtlasRepo repository at `skills/scout-rest-api/SKILL.md` and mirrored here on release. Keep the two in sync when editing.
