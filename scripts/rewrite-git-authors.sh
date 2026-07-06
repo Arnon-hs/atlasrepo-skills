@@ -36,6 +36,9 @@ if [ -z "${TARGET_AUTHOR_NAME}" ]; then
   exit 1
 fi
 
+export TARGET_AUTHOR_NAME
+export TARGET_AUTHOR_EMAIL
+
 echo "WARNING: Git history will be rewritten in this repository."
 echo "All commit author and committer metadata will become:"
 echo "  ${TARGET_AUTHOR_NAME} <${TARGET_AUTHOR_EMAIL}>"
